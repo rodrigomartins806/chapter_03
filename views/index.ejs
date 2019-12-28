@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Pagina Arduino
+        </title>
+    </head>
+    <body>
+        <h1>Arduino data</h1>
+        <p>Precione o botão na aplicacao do arduino para mudar a cor aqui</p>
+        <p>o botão esta <span id="button-state"></span></p>
+        <svg width="120" height="120" viewBox="0 0 120 120">
+            <rect id="change-color"
+            fill="LightSkyBlue"
+            width="120"
+            height="120"
+            />
+        </svg>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js" integrity="sha256-bQmrZe4yPnQrLTY+1gYylfNMBuGfnT/HKsCGX+9Xuqo=" crossorigin="anonymous"></script>
+        <script>
+        var socket = io();
+        var current = "0";
+        var shape = document.getElementById('change-color');
+        var buttonState = document.getElementById('button-state');
+        var colorArray =["LightSkyBlue","LightSlateGray","DarkOliveGreen","orange","DarkRed","gold","purple"];
+
+        socket.on("data",function(data){
+            if(data ==="1"){
+                buttonState.innerHTML = "pressed";
+                //console.warn(data);
+                if(data === current){
+                    var newColor = colorArray[Math.floor(Math.random()*colorArray.length)];
+                    shape.style.fill = newColor;
+                }
+            }else{
+                buttonState.innerHTML = "not Pressed"
+            }
+            current = data;
+            //console.warn("dados current : "+current);
+        });
+        
+        </script>
+    </body>
+</html>
