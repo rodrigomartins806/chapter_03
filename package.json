@@ -1,0 +1,25 @@
+{
+  "name": "chapter_03",
+  "version": "1.0.0",
+  "description": "Primeiro parte do arduino conectado na WEB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigomartins806/chapter_03.git"
+  },
+  "author": "Rodrigo Martins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigomartins806/chapter_03/issues"
+  },
+  "homepage": "https://github.com/rodrigomartins806/chapter_03#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "serialport": "^8.0.6",
+    "socket.io": "^2.3.0"
+  }
+}
